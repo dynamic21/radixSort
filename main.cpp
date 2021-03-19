@@ -23,12 +23,12 @@ unsigned int xorshift32()
 void GenerateRandomData(unsigned int *arr, int count)
 {
     for (int i = 0; i < count; i++)
-        arr[i] = xorshift32();
+        arr[i] = xorshift32() % 100;
 }
 
 int main()
 {
-    int COUNT = 10000000;
+    int COUNT = 1000000;
     unsigned int *arr = new unsigned int[COUNT];
     for (int r = 0; r < 10; r++)
     {
@@ -43,8 +43,8 @@ int main()
     // cout << "Sorted list: " << endl;
     // for (int i = 0; i < COUNT; i++)
     //     cout << i << ": " << arr[i] << endl;
-    for (int i = 1; i < COUNT; i++)
-        if (arr[i] < arr[i - 1])
-            cout << "error" << endl;
+    // for (int i = 1; i < COUNT; i++)
+    //     if (arr[i] < arr[i - 1])
+    //         cout << "error" << endl;
     delete[] arr;
 }
